@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0d0b0c">
+  <title>Felices 17, Areli | De Axel para mi flaca</title>
+
+  <!-- Google Fonts: Cormorant Garamond (títulos), Plus Jakarta Sans (UI/textos breves) y Kalam (manuscrita para la carta) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Kalam:wght@300;400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#0d0b0c',
+            velvet: '#161113',
+            charcoal: '#1c1518',
+            wine: '#9e1424',
+            crimson: '#c81d32',
+            scarlet: '#e03a4f',
+            ivory: '#faf7f5',
+            parchment: '#f4ece8',
+            espresso: '#261b1d',
+            mutedink: '#635054',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            hand: ['"Kalam"', 'cursive'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Configuración base y prevención estricta de desplazamiento horizontal */
+    html, body {
+      overflow-x: hidden;
+      background-color: #0d0b0c;
+      color: #faf7f5;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Atmósferas con iluminación vino tinto / carmesí */
+    .bg-hero-glow {
+      background:
+        radial-gradient(ellipse 74% 58% at 50% 42%, rgba(158, 20, 36, 0.25) 0%, rgba(22, 17, 19, 0.9) 56%, #0d0b0c 100%);
+    }
+
+    .bg-timeline-glow {
+      background:
+        radial-gradient(circle at 82% 20%, rgba(158, 20, 36, 0.14) 0%, transparent 48%),
+        radial-gradient(circle at 18% 82%, rgba(200, 29, 50, 0.1) 0%, transparent 50%),
+        linear-gradient(180deg, #120e10 0%, #171113 55%, #110d0e 100%);
+    }
+
+    .bg-reasons-glow {
+      background:
+        radial-gradient(ellipse 68% 52% at 50% 15%, rgba(158, 20, 36, 0.18) 0%, transparent 62%),
+        linear-gradient(180deg, #0d0b0c 0%, #161113 50%, #0d0b0c 100%);
+    }
+
+    .bg-closing-glow {
+      background:
+        radial-gradient(ellipse 85% 65% at 50% 35%, rgba(158, 20, 36, 0.36) 0%, rgba(42, 11, 17, 0.9) 56%, #0d0b0c 100%);
+    }
+
+    /* Papel marfil texturizado suave para la carta */
+    .letter-paper-bg {
+      background-color: #fffdf9;
+      background-image:
+        radial-gradient(rgba(158, 20, 36, 0.03) 1px, transparent 0),
+        linear-gradient(180deg, rgba(244, 236, 232, 0.45) 0%, rgba(255, 253, 249, 1) 18%, rgba(255, 253, 249, 1) 85%, rgba(244, 236, 232, 0.5) 100%);
+      background-size: 22px 22px, 100% 100%;
+    }
+
+    /* Tipografía manuscrita exclusiva de la carta */
+    .letter-handwriting {
+      font-family: 'Kalam', cursive;
+      font-size: clamp(18px, 2.6vw, 21px);
+      line-height: 1.85;
+      color: #261b1d;
+    }
+
+    /* Aparición suave al deslizar */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Rebote tierno al tocar cualquier gatito */
+    @keyframes catWiggle {
+      0%   { transform: scale(1) rotate(0deg); }
+      22%  { transform: scale(1.08, 0.94) rotate(-4deg) translateY(-4px); }
+      48%  { transform: scale(0.96, 1.07) rotate(4deg) translateY(-7px); }
+      72%  { transform: scale(1.03, 0.98) rotate(-2deg) translateY(-2px); }
+      100% { transform: scale(1) rotate(0deg) translateY(0); }
+    }
+    .cat-bounce {
+      animation: catWiggle 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Parpadeo natural de ojos de los gatitos negros */
+    @keyframes catBlink {
+      0%, 91%, 100% { transform: scaleY(1); }
+      94%, 97% { transform: scaleY(0.12); }
+    }
+    .cat-eyes-blink {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: catBlink 4.7s infinite;
+    }
+
+    /* Partículas flotantes (corazones carmesí y huellitas) */
+    @keyframes floatSpark {
+      0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.55) rotate(0deg);
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translate(var(--dx, 0px), -70px) scale(1.12) rotate(var(--rot, 14deg));
+      }
+    }
+    .spark-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 60;
+      animation: floatSpark 1.15s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    /* Globo de mensaje para cada gatito */
+    .cat-bubble {
+      display: grid;
+      grid-template-rows: 0fr;
+      opacity: 0;
+      transition: grid-template-rows 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease, margin-top 0.35s ease;
+      margin-top: 0;
+    }
+    .cat-card.is-revealed .cat-bubble {
+      grid-template-rows: 1fr;
+      opacity: 1;
+      margin-top: 0.75rem;
+    }
+    .cat-bubble-inner {
+      overflow: hidden;
+    }
+
+    /* Tarjetas 3D Flip (17 razones) compatibles con iOS y Android */
+    .flip-scene {
+      perspective: 1100px;
+      -webkit-perspective: 1100px;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.68s cubic-bezier(0.22, 1, 0.36, 1);
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+    }
+    .flip-scene.is-flipped .flip-card-inner {
+      transform: rotateY(180deg);
+      -webkit-transform: rotateY(180deg);
+    }
+    .flip-face {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .flip-front {
+      transform: rotateY(0deg);
+      -webkit-transform: rotateY(0deg);
+    }
+    .flip-back {
+      transform: rotateY(180deg);
+      -webkit-transform: rotateY(180deg);
+    }
+
+    /* Sobre de terciopelo negro con forro carmesí y sello de lacre 3D */
+    .envelope-stage {
+      perspective: 1200px;
+      -webkit-perspective: 1200px;
+    }
+    .envelope-box {
+      position: relative;
+      width: 100%;
+      max-width: 344px;
+      height: 218px;
+      margin: 0 auto;
+      cursor: pointer;
+      transition: transform 0.4s ease;
+    }
+    .envelope-box:hover {
+      transform: translateY(-4px);
+    }
+    .envelope-body {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, #1b1316 0%, #0d0a0b 100%);
+      border-radius: 14px;
+      border: 1px solid rgba(200, 29, 50, 0.55);
+      box-shadow: 0 24px 48px -12px rgba(38, 27, 29, 0.45), 0 0 26px rgba(158, 20, 36, 0.18);
+      overflow: hidden;
+    }
+    .envelope-liner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 58%;
+      background: linear-gradient(180deg, #7f0e1d 0%, #b4162a 100%);
+      clip-path: polygon(0 0, 100% 0, 50% 96%);
+    }
+    .envelope-peek {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 14px;
+      height: 152px;
+      background: #fffdf9;
+      border: 1px solid #e4d2ce;
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.32);
+      transition: transform 0.78s cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 20px;
+      z-index: 2;
+    }
+    .envelope-box.is-open .envelope-peek {
+      transform: translateY(-58px);
+    }
+    .envelope-pocket {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+    }
+    .envelope-pocket-left {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #21171a 0%, #130d0f 100%);
+      clip-path: polygon(0 0, 52% 54%, 0 100%);
+    }
+    .envelope-pocket-right {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(225deg, #24191c 0%, #150e10 100%);
+      clip-path: polygon(100% 0, 48% 54%, 100% 100%);
+    }
+    .envelope-pocket-bottom {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, #1b1315 0%, #0e0a0b 100%);
+      clip-path: polygon(0 100%, 50% 48%, 100% 100%);
+      border-top: 1px solid rgba(200, 29, 50, 0.28);
+    }
+    .envelope-flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 126px;
+      transform-origin: top center;
+      transition: transform 0.78s cubic-bezier(0.22, 1, 0.36, 1), z-index 0.3s ease;
+      z-index: 4;
+      pointer-events: none;
+    }
+    .envelope-flap-shape {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #261b1f 0%, #140e10 100%);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5));
+      border-top: 1px solid rgba(200, 29, 50, 0.45);
+    }
+    .envelope-box.is-open .envelope-flap {
+      transform: rotateX(176deg);
+      z-index: 1;
+    }
+
+    /* Sello de lacre rojo 3D con la inicial A */
+    .wax-seal {
+      position: absolute;
+      top: 52%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px;
+      height: 64px;
+      border-radius: 9999px;
+      background: radial-gradient(circle at 34% 28%, #eb475c 0%, #c81d32 45%, #8a0f1e 82%, #5e0812 100%);
+      box-shadow:
+        0 10px 22px rgba(0, 0, 0, 0.62),
+        inset 0 2px 6px rgba(255, 208, 214, 0.5),
+        inset 0 -4px 7px rgba(56, 4, 11, 0.75);
+      border: 2px solid rgba(244, 128, 144, 0.38);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+    }
+    .wax-seal::after {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 228, 232, 0.36);
+    }
+    .envelope-box:hover .wax-seal {
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+    .envelope-box.is-open .wax-seal {
+      opacity: 0;
+      transform: translate(-50%, -84%) scale(0.7);
+      pointer-events: none;
+    }
+
+    /* Despliegue suave de la carta */
+    .letter-wrapper {
+      display: grid;
+      grid-template-rows: 0fr;
+      opacity: 0;
+      transition: grid-template-rows 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.75s ease, margin-top 0.6s ease;
+      margin-top: 0;
+    }
+    .letter-wrapper.open {
+      grid-template-rows: 1fr;
+      opacity: 1;
+      margin-top: 2.5rem;
+    }
+    .letter-inner {
+      overflow: hidden;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .flip-card-inner, .envelope-flap, .envelope-peek, .letter-wrapper, .cat-bubble { transition: none; }
+      .cat-eyes-blink { animation: none; }
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-crimson selection:text-white">
+
+  <!-- Barra de progreso de lectura en rojo carmesí -->
+  <div id="progressBar" class="fixed top-0 left-0 h-[3px] w-0 bg-gradient-to-r from-wine via-crimson to-scarlet z-50 transition-[width] duration-75 ease-out"></div>
+
+  <!-- Canvas de pétalos rojos cayendo suavemente -->
+  <canvas id="petalsCanvas" aria-hidden="true" class="fixed inset-0 w-full h-full pointer-events-none z-20"></canvas>
+
+  <!-- 1. BOTÓN FLOTANTE DE MÚSICA (Arriba a la derecha) -->
+  <button
+    id="musicBtn"
+    type="button"
+    aria-label="Reproducir o pausar música de piano de La La Land"
+    class="fixed top-4 right-4 z-40 flex items-center gap-2 rounded-full border border-crimson/55 bg-obsidian/88 backdrop-blur-md px-4 py-2.5 text-xs sm:text-sm font-medium text-ivory shadow-lg shadow-black/50 hover:border-scarlet hover:bg-wine/90 transition-all duration-300 cursor-pointer"
+  >
+    <span id="musicDot" class="h-2 w-2 rounded-full bg-ivory/40 transition-colors"></span>
+    <span id="musicLabel">♫ Piano · La La Land</span>
+  </button>
+
+  <!-- Archivo local opcional musica.mp3 (si no existe, se activa el piano sintetizado de La La Land sin retraso) -->
+  <audio id="localSong" loop preload="metadata">
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- =====================================================================
+       2. HERO SECTION (Negro terciopelo, rosas rojas SVG y gatito negro)
+       ===================================================================== -->
+  <header id="inicio" class="relative min-h-[100svh] flex flex-col items-center justify-center text-center px-6 pt-24 pb-32 bg-hero-glow overflow-hidden">
+
+    <!-- Rosa roja SVG esquina superior izquierda -->
+    <svg class="pointer-events-none select-none absolute -top-6 -left-8 sm:top-4 sm:left-4 w-44 h-44 sm:w-64 sm:h-64 opacity-60 sm:opacity-75 -rotate-12" viewBox="0 0 220 220" fill="none" aria-hidden="true">
+      <path d="M98 118 C70 148, 52 178, 36 212" stroke="#52121c" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M74 152 C44 146, 30 130, 26 112 C48 116, 68 128, 74 152 Z" fill="#2b0b11" stroke="#7d1221" stroke-width="1"/>
+      <path d="M62 176 C86 172, 108 182, 118 198 C94 200, 74 192, 62 176 Z" fill="#23080d" stroke="#6b101d" stroke-width="1"/>
+      <path d="M116 42 C154 34, 184 68, 174 106 C166 138, 132 158, 96 148 C60 138, 44 102, 58 68 C68 44, 92 46, 116 42 Z" fill="#6b0c18"/>
+      <path d="M122 50 C156 54, 172 86, 160 116 C148 144, 110 154, 84 134 C60 116, 60 76, 86 58 C98 50, 110 48, 122 50 Z" fill="#9e1424"/>
+      <path d="M114 62 C142 62, 156 88, 144 114 C132 136, 98 140, 82 118 C68 98, 82 62, 114 62 Z" fill="#c81d32"/>
+      <path d="M106 72 C130 68, 144 88, 134 108 C124 126, 98 128, 88 110 C80 94, 90 74, 106 72 Z" fill="#e03a4f"/>
+      <path d="M108 82 C122 80, 130 92, 124 104 C118 114, 102 114, 96 104 C92 96, 100 84, 110 86 C116 88, 118 96, 112 100" stroke="#ffd4db" stroke-opacity="0.58" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+
+    <!-- Rosa roja SVG esquina inferior derecha -->
+    <svg class="pointer-events-none select-none absolute -bottom-10 -right-8 sm:bottom-2 sm:right-4 w-48 h-48 sm:w-64 sm:h-64 opacity-55 sm:opacity-70 rotate-[165deg]" viewBox="0 0 220 220" fill="none" aria-hidden="true">
+      <path d="M98 118 C70 148, 52 178, 36 212" stroke="#52121c" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M74 152 C44 146, 30 130, 26 112 C48 116, 68 128, 74 152 Z" fill="#2b0b11" stroke="#7d1221" stroke-width="1"/>
+      <path d="M116 42 C154 34, 184 68, 174 106 C166 138, 132 158, 96 148 C60 138, 44 102, 58 68 C68 44, 92 46, 116 42 Z" fill="#6b0c18"/>
+      <path d="M122 50 C156 54, 172 86, 160 116 C148 144, 110 154, 84 134 C60 116, 60 76, 86 58 C98 50, 110 48, 122 50 Z" fill="#9e1424"/>
+      <path d="M114 62 C142 62, 156 88, 144 114 C132 136, 98 140, 82 118 C68 98, 82 62, 114 62 Z" fill="#c81d32"/>
+      <path d="M106 72 C130 68, 144 88, 134 108 C124 126, 98 128, 88 110 C80 94, 90 74, 106 72 Z" fill="#e03a4f"/>
+      <path d="M108 82 C122 80, 130 92, 124 104 C118 114, 102 114, 96 104 C92 96, 100 84, 110 86" stroke="#ffd4db" stroke-opacity="0.58" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+
+    <!-- Contenido central del Hero -->
+    <div class="relative z-30 max-w-xl mx-auto">
+      <p class="text-[11px] sm:text-xs uppercase tracking-[0.3em] text-scarlet font-medium mb-5">
+        23 DE NOVIEMBRE · TUS 17
+      </p>
+
+      <h1 class="font-serif font-normal text-5xl sm:text-7xl md:text-8xl leading-[1.04] text-ivory tracking-tight">
+        Feliz cumpleaños,<br>
+        <span class="italic text-crimson drop-shadow-[0_4px_24px_rgba(200,29,50,0.42)]">mi flaca</span>
+      </h1>
+
+      <!-- Nombre delicado -->
+      <p class="mt-4 font-serif italic text-2xl sm:text-3xl tracking-[0.06em] text-ivory/85">
+        Areli Yuvitza
+      </p>
+
+      <!-- Divisor minimalista con rosa roja -->
+      <div class="flex items-center justify-center gap-3.5 my-6" aria-hidden="true">
+        <span class="h-[1px] w-12 bg-gradient-to-r from-transparent to-crimson/70"></span>
+        <svg class="w-5 h-5" viewBox="0 0 36 36" fill="none">
+          <circle cx="18" cy="18" r="7.5" fill="#9e1424"/>
+          <circle cx="18" cy="17.5" r="4.8" fill="#c81d32"/>
+          <path d="M16.2 16.6 C17.5 15, 20.2 16, 19.2 18.2 C18.3 19.6, 16 18.7, 16.9 17.2" stroke="#ffe0e5" stroke-opacity="0.8" stroke-width="1" stroke-linecap="round"/>
+        </svg>
+        <span class="h-[1px] w-12 bg-gradient-to-l from-transparent to-crimson/70"></span>
+      </div>
+
+      <p class="font-sans font-light text-base sm:text-lg text-ivory/80 leading-relaxed mb-9 max-w-md mx-auto">
+        Te hice este rincón solo para ti. Pon la música y léeme despacito.
+      </p>
+
+      <button
+        id="heroCtaBtn"
+        type="button"
+        class="inline-flex items-center justify-center rounded-full border border-crimson bg-crimson/15 px-9 py-3.5 text-sm sm:text-base font-medium tracking-wide text-ivory shadow-[0_0_28px_rgba(200,29,50,0.3)] hover:bg-crimson hover:border-scarlet hover:shadow-[0_0_36px_rgba(224,58,79,0.5)] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+      >
+        Entrar ♡
+      </button>
+    </div>
+
+    <!-- Indicador de scroll + gatito negro asomándose suavemente en el borde inferior -->
+    <div class="pointer-events-none select-none absolute bottom-0 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center">
+      <span class="mb-2 text-[10px] uppercase tracking-[0.28em] text-ivory/50 font-medium">
+        DESLIZA DESPACITO ↓
+      </span>
+      <svg class="w-24 sm:w-28 h-auto drop-shadow-[0_-4px_14px_rgba(0,0,0,0.68)]" viewBox="0 0 120 62" fill="none" aria-hidden="true">
+        <path d="M31 42 L34 12 L52 28 Z" fill="#151012" stroke="#301d23" stroke-width="1"/>
+        <path d="M89 42 L86 12 L68 28 Z" fill="#151012" stroke="#301d23" stroke-width="1"/>
+        <path d="M35 37 L36 19 L47 29 Z" fill="#2c131a"/>
+        <path d="M85 37 L84 19 L73 29 Z" fill="#2c131a"/>
+        <path d="M24 62 C24 36, 40 22, 60 22 C80 22, 96 36, 96 62 Z" fill="#151012" stroke="#301d23" stroke-width="1"/>
+        <g class="cat-eyes-blink">
+          <ellipse cx="47" cy="43" rx="4.5" ry="3.8" fill="#f5b82e"/>
+          <ellipse cx="73" cy="43" rx="4.5" ry="3.8" fill="#f5b82e"/>
+          <ellipse cx="47.2" cy="43" rx="1.4" ry="3.1" fill="#0d0b0c"/>
+          <ellipse cx="73.2" cy="43" rx="1.4" ry="3.1" fill="#0d0b0c"/>
+          <circle cx="45.8" cy="41.8" r="1" fill="#fff8e0"/>
+          <circle cx="71.8" cy="41.8" r="1" fill="#fff8e0"/>
+        </g>
+        <polygon points="57.5,50 62.5,50 60,52.8" fill="#c81d32" opacity="0.9"/>
+        <ellipse cx="30" cy="59" rx="9" ry="5" fill="#1d1518" stroke="#382228" stroke-width="1"/>
+        <ellipse cx="90" cy="59" rx="9" ry="5" fill="#1d1518" stroke="#382228" stroke-width="1"/>
+      </svg>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       3. BRIEF INTRO SECTION (#inicio-historia, fondo marfil, muy breve)
+       ===================================================================== -->
+  <section id="inicio-historia" class="relative z-30 bg-ivory text-espresso px-6 py-24 sm:py-28">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <p class="text-[11px] uppercase tracking-[0.28em] text-wine font-semibold mb-4">
+        Antes de empezar
+      </p>
+      <h2 class="font-serif italic font-medium text-3xl sm:text-5xl leading-snug text-espresso mb-6">
+        No quería mandarte cualquier mensaje.
+      </h2>
+      <p class="font-sans font-light text-base sm:text-lg leading-relaxed text-mutedink max-w-xl mx-auto">
+        Quería hacerte algo mío, pensado en ti, en tus flores rojas, en tus gatitos y en lo feliz que me hace tenerte conmigo.
+      </p>
+
+      <!-- Divisor floral en rosa roja -->
+      <div class="mt-12 flex items-center justify-center gap-4" aria-hidden="true">
+        <span class="h-[1px] w-14 bg-gradient-to-r from-transparent to-crimson/55"></span>
+        <svg class="w-6 h-6" viewBox="0 0 36 36" fill="none">
+          <circle cx="18" cy="16" r="6.5" fill="#9e1424"/>
+          <circle cx="18" cy="15.5" r="4.1" fill="#c81d32"/>
+          <path d="M16.4 14.8 C17.6 13.4, 20 14.3, 19.1 16.2 C18.3 17.4, 16.3 16.6, 17 15.3" stroke="#ffe1e6" stroke-opacity="0.78" stroke-width="1" stroke-linecap="round"/>
+          <path d="M18 22.5 V30" stroke="#7d1221" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        <span class="h-[1px] w-14 bg-gradient-to-l from-transparent to-crimson/55"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       4. MINI TIMELINE ("Lo nuestro" / carbón oscuro + línea carmesí)
+       ===================================================================== -->
+  <section id="historia" class="relative z-30 bg-timeline-glow text-ivory px-6 py-24 sm:py-28 border-t border-crimson/20">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center max-w-xl mx-auto mb-14 reveal">
+        <p class="text-[11px] uppercase tracking-[0.28em] text-scarlet font-medium mb-3">
+          Lo nuestro
+        </p>
+        <h2 class="font-serif font-normal text-4xl sm:text-5xl leading-tight text-ivory">
+          Así empezó todo contigo
+        </h2>
+      </div>
+
+      <!-- Línea del tiempo vertical con 5 momentos breves en primera persona -->
+      <div class="relative max-w-xl mx-auto pl-8 sm:pl-11">
+        <div class="absolute left-[11px] sm:left-[15px] top-2 bottom-2 w-[2px] bg-gradient-to-b from-crimson via-wine/75 to-crimson/25 rounded-full" aria-hidden="true"></div>
+
+        <!-- 1 -->
+        <article class="relative pb-10 reveal">
+          <span class="absolute -left-[27px] sm:-left-[35px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-velvet ring-2 ring-crimson">
+            <span class="h-1.5 w-1.5 rounded-full bg-crimson"></span>
+          </span>
+          <span class="block text-[10px] uppercase tracking-[0.24em] text-scarlet/90 font-medium mb-1">En las canchas</span>
+          <h3 class="font-serif text-2xl sm:text-[27px] font-medium text-ivory mb-1.5">Te vi jugando fútbol</h3>
+          <p class="font-sans font-light text-[15px] sm:text-base leading-relaxed text-ivory/75">
+            La primera vez que te vi estabas jugando, y desde ese momento ya me llamabas la atención.
+          </p>
+        </article>
+
+        <!-- 2 -->
+        <article class="relative pb-10 reveal">
+          <span class="absolute -left-[27px] sm:-left-[35px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-velvet ring-2 ring-crimson">
+            <span class="h-1.5 w-1.5 rounded-full bg-crimson"></span>
+          </span>
+          <span class="block text-[10px] uppercase tracking-[0.24em] text-scarlet/90 font-medium mb-1">De risa en risa</span>
+          <h3 class="font-serif text-2xl sm:text-[27px] font-medium text-ivory mb-1.5">Cuando te decía «amiguis»</h3>
+          <p class="font-sans font-light text-[15px] sm:text-base leading-relaxed text-ivory/75">
+            Empecé diciéndote así por broma, sin imaginar que te ibas a volver mi persona favorita.
+          </p>
+        </article>
+
+        <!-- 3 -->
+        <article class="relative pb-10 reveal">
+          <span class="absolute -left-[27px] sm:-left-[35px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-velvet ring-2 ring-crimson">
+            <span class="h-1.5 w-1.5 rounded-full bg-crimson"></span>
+          </span>
+          <span class="block text-[10px] uppercase tracking-[0.24em] text-scarlet/90 font-medium mb-1">Tardes contigo</span>
+          <h3 class="font-serif text-2xl sm:text-[27px] font-medium text-ivory mb-1.5">Pláticas sin hora</h3>
+          <p class="font-sans font-light text-[15px] sm:text-base leading-relaxed text-ivory/75">
+            Te llevaba a tu casa, me quedaba hablando contigo hasta llegar tarde y me nacía llevarte cositas de la tienda.
+          </p>
+        </article>
+
+        <!-- 4 -->
+        <article class="relative pb-10 reveal">
+          <span class="absolute -left-[27px] sm:-left-[35px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-velvet ring-2 ring-crimson">
+            <span class="h-1.5 w-1.5 rounded-full bg-crimson"></span>
+          </span>
+          <span class="block text-[10px] uppercase tracking-[0.24em] text-scarlet/90 font-medium mb-1">Un paso que di</span>
+          <h3 class="font-serif text-2xl sm:text-[27px] font-medium text-ivory mb-1.5">Nuestro primer beso</h3>
+          <p class="font-sans font-light text-[15px] sm:text-base leading-relaxed text-ivory/75">
+            Todavía éramos amigos, pero entre tantos abrazos me animé... y ahí supe que quería todo contigo.
+          </p>
+        </article>
+
+        <!-- 5 -->
+        <article class="relative reveal">
+          <span class="absolute -left-[27px] sm:-left-[35px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-crimson ring-4 ring-crimson/25">
+            <span class="h-1.5 w-1.5 rounded-full bg-ivory"></span>
+          </span>
+          <span class="block text-[10px] uppercase tracking-[0.24em] text-scarlet font-semibold mb-1">16 de noviembre</span>
+          <h3 class="font-serif text-2xl sm:text-[27px] font-medium text-scarlet mb-1.5">Nuestro primer mes</h3>
+          <p class="font-sans font-light text-[15px] sm:text-base leading-relaxed text-ivory/80">
+            Llevamos poquito de novios, pero lo que siento por ti ya es enorme.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       5. INTERACTIVE CATS SECTION (Fondo marfil cálido + Gato Negro destacado)
+       ===================================================================== -->
+  <section id="gatitos" class="relative z-30 bg-ivory text-espresso px-5 sm:px-6 py-24 sm:py-28">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center max-w-xl mx-auto mb-12 reveal">
+        <p class="text-[11px] uppercase tracking-[0.28em] text-wine font-semibold mb-3">
+          Porque sé cuánto los amas
+        </p>
+        <h2 class="font-serif font-medium text-4xl sm:text-5xl leading-tight text-espresso mb-3">
+          Te traje gatitos para tu día
+        </h2>
+        <p class="font-sans font-light text-sm sm:text-base text-mutedink">
+          Sé que te gustan todos, pero puse a tu favorito primero. Toca cada uno.
+        </p>
+      </div>
+
+      <!-- TARJETA DESTACADA #1: GATO NEGRO (más grande, borde carmesí y listón "Tu favorito ♡") -->
+      <div class="max-w-2xl mx-auto mb-6 reveal">
+        <button
+          type="button"
+          class="cat-card group relative w-full text-center sm:text-left rounded-2xl border-2 border-crimson bg-gradient-to-br from-white via-ivory to-parchment p-6 sm:p-8 shadow-[0_18px_42px_-14px_rgba(158,20,36,0.22)] hover:border-scarlet hover:-translate-y-1 transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson"
+        >
+          <!-- Listón / etiqueta de favorito -->
+          <span class="absolute top-3.5 right-3.5 inline-flex items-center gap-1 rounded-full bg-crimson px-3 py-1 text-[10px] sm:text-[11px] uppercase tracking-[0.16em] font-semibold text-ivory shadow-md shadow-crimson/30">
+            Tu favorito ♡
+          </span>
+
+          <div class="flex flex-col sm:flex-row items-center gap-5 sm:gap-7">
+            <!-- Ilustración SVG grande del Gato Negro con ojos ámbar y moño carmesí -->
+            <div class="cat-svg-wrap shrink-0 w-36 h-32 sm:w-40 sm:h-36 flex items-center justify-center">
+              <svg class="w-full h-full drop-shadow-[0_8px_16px_rgba(22,17,19,0.22)]" viewBox="0 0 120 110" fill="none" aria-hidden="true">
+                <path d="M84 86 C104 86, 110 66, 98 52 C94 47, 99 42, 103 46" stroke="#110d0f" stroke-width="7.5" stroke-linecap="round"/>
+                <ellipse cx="60" cy="76" rx="25" ry="22" fill="#110d0f" stroke="#2c1f24" stroke-width="1.2"/>
+                <ellipse cx="48" cy="94" rx="7" ry="4.5" fill="#1a1417"/>
+                <ellipse cx="72" cy="94" rx="7" ry="4.5" fill="#1a1417"/>
+                <circle cx="60" cy="43" r="22" fill="#110d0f" stroke="#2c1f24" stroke-width="1.2"/>
+                <path d="M41 33 L39 12 L55 24 Z" fill="#110d0f" stroke="#2c1f24" stroke-width="1.2"/>
+                <path d="M79 33 L81 12 L65 24 Z" fill="#110d0f" stroke="#2c1f24" stroke-width="1.2"/>
+                <path d="M43 29 L42 17 L51 24 Z" fill="#3a1922"/>
+                <path d="M77 29 L78 17 L69 24 Z" fill="#3a1922"/>
+                <!-- Moño rojo carmesí -->
+                <path d="M43 60 Q60 68 77 60" stroke="#c81d32" stroke-width="5" stroke-linecap="round"/>
+                <path d="M60 65 L51 60.5 L52 69.5 Z" fill="#e03a4f"/>
+                <path d="M60 65 L69 60.5 L68 69.5 Z" fill="#e03a4f"/>
+                <circle cx="60" cy="65" r="2.8" fill="#9e1424"/>
+                <!-- Ojos dorado-ámbar -->
+                <g class="cat-eyes-blink">
+                  <ellipse cx="51" cy="42" rx="4.5" ry="4.1" fill="#f5b82e"/>
+                  <ellipse cx="69" cy="42" rx="4.5" ry="4.1" fill="#f5b82e"/>
+                  <ellipse cx="51.2" cy="42" rx="1.4" ry="3.4" fill="#0d0b0c"/>
+                  <ellipse cx="69.2" cy="42" rx="1.4" ry="3.4" fill="#0d0b0c"/>
+                  <circle cx="49.7" cy="40.5" r="1.1" fill="#fff8e1"/>
+                  <circle cx="67.7" cy="40.5" r="1.1" fill="#fff8e1"/>
+                </g>
+                <polygon points="57.8,48.5 62.2,48.5 60,51" fill="#df6474"/>
+                <path d="M56 53 Q60 56 64 53" stroke="#685258" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M42 48 L28 46 M42 51 L29 52 M78 48 L92 46 M78 51 L91 52" stroke="#5c4a4f" stroke-width="1" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <div class="flex-1 w-full">
+              <h3 class="font-serif text-3xl text-espresso font-medium">Gato Negro</h3>
+              <p class="cat-hint text-xs uppercase tracking-[0.2em] text-wine/75 mt-1 font-medium">
+                Tócame para leer lo que te dejé ♡
+              </p>
+              <div class="cat-bubble">
+                <div class="cat-bubble-inner">
+                  <div class="relative rounded-xl bg-obsidian text-ivory px-4 py-3 text-sm sm:text-[15px] leading-relaxed shadow-md">
+                    «Puse a este negrito primero pensando en ti. Dicen que dan buena suerte, pero mi suerte eres tú.»
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <!-- OTROS 5 GATITOS (Cuadrícula responsiva centrada) -->
+      <div class="flex flex-wrap justify-center gap-5 reveal">
+
+        <!-- 2. GATO ATIGRADO -->
+        <button
+          type="button"
+          class="cat-card group relative flex flex-col items-center text-center w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(33.333%-0.85rem)] rounded-2xl border border-wine/18 bg-white p-6 shadow-md shadow-espresso/6 hover:border-crimson/65 hover:-translate-y-1 transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson"
+        >
+          <div class="cat-svg-wrap w-28 h-24 flex items-center justify-center mb-2">
+            <svg class="w-full h-full" viewBox="0 0 120 110" fill="none" aria-hidden="true">
+              <path d="M84 86 C103 84, 108 64, 96 52" stroke="#8a7c72" stroke-width="7.5" stroke-linecap="round"/>
+              <path d="M98 76 L104 74 M101 64 L106 65" stroke="#4b413b" stroke-width="2" stroke-linecap="round"/>
+              <ellipse cx="60" cy="76" rx="24" ry="21" fill="#8a7c72"/>
+              <ellipse cx="60" cy="80" rx="12" ry="13" fill="#cfc5bc"/>
+              <path d="M39 71 Q45 73 47 72 M38 78 Q44 80 46 79 M81 71 Q75 73 73 72 M82 78 Q76 80 74 79" stroke="#4b413b" stroke-width="2.2" stroke-linecap="round"/>
+              <ellipse cx="49" cy="94" rx="6.5" ry="4.5" fill="#d8cfc7"/>
+              <ellipse cx="71" cy="94" rx="6.5" ry="4.5" fill="#d8cfc7"/>
+              <circle cx="60" cy="43" r="21" fill="#8a7c72"/>
+              <path d="M42 33 L40 13 L55 24 Z" fill="#8a7c72"/>
+              <path d="M78 33 L80 13 L65 24 Z" fill="#8a7c72"/>
+              <path d="M44 29 L43 18 L51 24 Z" fill="#c9a5a0"/>
+              <path d="M76 29 L77 18 L69 24 Z" fill="#c9a5a0"/>
+              <path d="M54 29 L56 34 L60 30 L64 34 L66 29" stroke="#4b413b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M41 42 L46 43 M79 42 L74 43" stroke="#4b413b" stroke-width="1.8" stroke-linecap="round"/>
+              <ellipse cx="51" cy="43" rx="4" ry="3.8" fill="#a8b85c"/>
+              <ellipse cx="69" cy="43" rx="4" ry="3.8" fill="#a8b85c"/>
+              <ellipse cx="51" cy="43" rx="1.4" ry="3" fill="#1f1a18"/>
+              <ellipse cx="69" cy="43" rx="1.4" ry="3" fill="#1f1a18"/>
+              <circle cx="49.8" cy="41.8" r="1" fill="#ffffff"/>
+              <circle cx="67.8" cy="41.8" r="1" fill="#ffffff"/>
+              <polygon points="57.8,48.5 62.2,48.5 60,51" fill="#d67f85"/>
+              <path d="M56.5 53 Q60 55.5 63.5 53" stroke="#4b413b" stroke-width="1.2" stroke-linecap="round"/>
+              <path d="M43 48 L30 47 M43 51 L31 53 M77 48 L90 47 M77 51 L89 53" stroke="#8a7c72" stroke-width="1" stroke-linecap="round" opacity="0.65"/>
+            </svg>
+          </div>
+          <h3 class="font-serif text-2xl text-espresso font-medium">Gato Atigrado</h3>
+          <p class="cat-hint text-[11px] uppercase tracking-[0.2em] text-mutedink/70 mt-1">Tocar</p>
+          <div class="cat-bubble w-full">
+            <div class="cat-bubble-inner">
+              <div class="rounded-xl bg-parchment border border-wine/15 px-3.5 py-2.5 text-sm leading-relaxed text-espresso">
+                «Te lo mando para recordarte que hoy me debes el doble de abrazos.»
+              </div>
+            </div>
+          </div>
+        </button>
+
+        <!-- 3. GATO NARANJA -->
+        <button
+          type="button"
+          class="cat-card group relative flex flex-col items-center text-center w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(33.333%-0.85rem)] rounded-2xl border border-wine/18 bg-white p-6 shadow-md shadow-espresso/6 hover:border-crimson/65 hover:-translate-y-1 transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson"
+        >
+          <div class="cat-svg-wrap w-28 h-24 flex items-center justify-center mb-2">
+            <svg class="w-full h-full" viewBox="0 0 120 110" fill="none" aria-hidden="true">
+              <path d="M84 86 C103 86, 108 66, 97 53" stroke="#df833d" stroke-width="7.5" stroke-linecap="round"/>
+              <path d="M97 77 L104 75 M101 64 L106 65" stroke="#b35318" stroke-width="2" stroke-linecap="round"/>
+              <ellipse cx="60" cy="76" rx="24" ry="21" fill="#df833d"/>
+              <ellipse cx="60" cy="80" rx="12" ry="13" fill="#fbe5ce"/>
+              <path d="M39 71 Q45 73 47 72 M38 79 Q44 81 46 80 M81 71 Q75 73 73 72 M82 79 Q76 81 74 80" stroke="#b35318" stroke-width="2.2" stroke-linecap="round"/>
+              <ellipse cx="49" cy="94" rx="6.5" ry="4.5" fill="#fbe5ce"/>
+              <ellipse cx="71" cy="94" rx="6.5" ry="4.5" fill="#fbe5ce"/>
+              <circle cx="60" cy="43" r="21" fill="#df833d"/>
+              <path d="M42 33 L40 13 L55 24 Z" fill="#df833d"/>
+              <path d="M78 33 L80 13 L65 24 Z" fill="#df833d"/>
+              <path d="M44 29 L43 18 L51 24 Z" fill="#f7b7a3"/>
+              <path d="M76 29 L77 18 L69 24 Z" fill="#f7b7a3"/>
+              <ellipse cx="60" cy="50" rx="9" ry="6.5" fill="#fbe5ce"/>
+              <path d="M56 26 V32 M60 25 V33 M64 26 V32" stroke="#b35318" stroke-width="1.8" stroke-linecap="round"/>
+              <ellipse cx="51" cy="42" rx="4" ry="3.8" fill="#f2b830"/>
+              <ellipse cx="69" cy="42" rx="4" ry="3.8" fill="#f2b830"/>
+              <ellipse cx="51" cy="42" rx="1.4" ry="3" fill="#21150e"/>
+              <ellipse cx="69" cy="42" rx="1.4" ry="3" fill="#21150e"/>
+              <circle cx="49.8" cy="40.8" r="1" fill="#ffffff"/>
+              <circle cx="67.8" cy="40.8" r="1" fill="#ffffff"/>
+              <polygon points="57.8,48 62.2,48 60,50.5" fill="#e06c75"/>
+              <path d="M56.5 52.5 Q60 55.2 63.5 52.5" stroke="#8c441c" stroke-width="1.2" stroke-linecap="round"/>
+              <path d="M43 48 L30 47 M43 51 L31 53 M77 48 L90 47 M77 51 L89 53" stroke="#b35318" stroke-width="1" stroke-linecap="round" opacity="0.55"/>
+            </svg>
+          </div>
+          <h3 class="font-serif text-2xl text-espresso font-medium">Gato Naranja</h3>
+          <p class="cat-hint text-[11px] uppercase tracking-[0.2em] text-mutedink/70 mt-1">Tocar</p>
+          <div class="cat-bubble w-full">
+            <div class="cat-bubble-inner">
+              <div class="rounded-xl bg-parchment border border-wine/15 px-3.5 py-2.5 text-sm leading-relaxed text-espresso">
+                «Travieso y divertido, igual que nosotros cuando nos damos cariño a nuestra manera.»
+              </div>
+            </div>
+          </div>
+        </button>
+
+        <!-- 4. GATO SIAMÉS -->
+        <button
+          type="button"
+          class="cat-card group relative flex flex-col items-center text-center w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(33.333%-0.85rem)] rounded-2xl border border-wine/18 bg-white p-6 shadow-md shadow-espresso/6 hover:border-crimson/65 hover:-translate-y-1 transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson"
+        >
+          <div class="cat-svg-wrap w-28 h-24 flex items-center justify-center mb-2">
+            <svg class="w-full h-full" viewBox="0 0 120 110" fill="none" aria-hidden="true">
+              <path d="M84 86 C103 84, 108 62, 97 50" stroke="#463128" stroke-width="7" stroke-linecap="round"/>
+              <ellipse cx="60" cy="76" rx="23" ry="21" fill="#efe2d2" stroke="#d9cab8" stroke-width="1"/>
+              <ellipse cx="49" cy="94" rx="6.5" ry="4.5" fill="#463128"/>
+              <ellipse cx="71" cy="94" rx="6.5" ry="4.5" fill="#463128"/>
+              <circle cx="60" cy="43" r="21" fill="#efe2d2" stroke="#d9cab8" stroke-width="1"/>
+              <path d="M42 33 L39 12 L55 24 Z" fill="#463128"/>
+              <path d="M78 33 L81 12 L65 24 Z" fill="#463128"/>
+              <ellipse cx="60" cy="46" rx="14.5" ry="11.5" fill="#4a332a"/>
+              <ellipse cx="52" cy="43" rx="3.9" ry="3.7" fill="#5aa9e6"/>
+              <ellipse cx="68" cy="43" rx="3.9" ry="3.7" fill="#5aa9e6"/>
+              <ellipse cx="52" cy="43" rx="1.4" ry="3" fill="#162436"/>
+              <ellipse cx="68" cy="43" rx="1.4" ry="3" fill="#162436"/>
+              <circle cx="50.8" cy="41.8" r="1" fill="#ffffff"/>
+              <circle cx="66.8" cy="41.8" r="1" fill="#ffffff"/>
+              <polygon points="58,48.8 62,48.8 60,51" fill="#291b16"/>
+              <path d="M56.8 53 Q60 55 63.2 53" stroke="#cbb8a6" stroke-width="1.1" stroke-linecap="round"/>
+              <path d="M43 48 L30 47 M43 51 L31 53 M77 48 L90 47 M77 51 L89 53" stroke="#8f7868" stroke-width="1" stroke-linecap="round" opacity="0.65"/>
+            </svg>
+          </div>
+          <h3 class="font-serif text-2xl text-espresso font-medium">Gato Siamés</h3>
+          <p class="cat-hint text-[11px] uppercase tracking-[0.2em] text-mutedink/70 mt-1">Tocar</p>
+          <div class="cat-bubble w-full">
+            <div class="cat-bubble-inner">
+              <div class="rounded-xl bg-parchment border border-wine/15 px-3.5 py-2.5 text-sm leading-relaxed text-espresso">
+                «Tiene ojos bonitos, pero ninguno me gusta tanto como los tuyos.»
+              </div>
+            </div>
+          </div>
+        </button>
+
+        <!-- 5. GATO BLANCO CON ROSA ROJA -->
+        <button
+          type="button"
+          class="cat-card group relative flex flex-col items-center text-center w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(33.333%-0.85rem)] rounded-2xl border border-wine/18 bg-white p-6 shadow-md shadow-espresso/6 hover:border-crimson/65 hover:-translate-y-1 transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson"
+        >
+          <div class="cat-svg-wrap w-28 h-24 flex items-center justify-center mb-2">
+            <svg class="w-full h-full" viewBox="0 0 120 110" fill="none" aria-hidden="true">
+              <path d="M84 86 C103 85, 108 65, 97 52" stroke="#f0e7e4" stroke-width="7.5" stroke-linecap="round"/>
+              <ellipse cx="60" cy="76" rx="24" ry="21" fill="#fcf9f7" stroke="#dfd3ce" stroke-width="1.2"/>
+              <ellipse cx="49" cy="94" rx="6.5" ry="4.5" fill="#f3ebe7" stroke="#dfd3ce" stroke-width="1"/>
+              <ellipse cx="71" cy="94" rx="6.5" ry="4.5" fill="#f3ebe7" stroke="#dfd3ce" stroke-width="1"/>
+              <circle cx="60" cy="43" r="21" fill="#fcf9f7" stroke="#dfd3ce" stroke-width="1.2"/>
+              <path d="M42 33 L40 13 L55 24 Z" fill="#fcf9f7" stroke="#dfd3ce" stroke-width="1.2"/>
+              <path d="M78 33 L80 13 L65 24 Z" fill="#fcf9f7" stroke="#dfd3ce" stroke-width="1.2"/>
+              <path d="M44 29 L43 18 L51 24 Z" fill="#f4bcc4"/>
+              <path d="M76 29 L77 18 L69 24 Z" fill="#f4bcc4"/>
+              <!-- Ojos claros -->
+              <ellipse cx="51" cy="42" rx="4" ry="3.8" fill="#7aaed4"/>
+              <ellipse cx="69" cy="42" rx="4" ry="3.8" fill="#7aaed4"/>
+              <ellipse cx="51" cy="42" rx="1.4" ry="3" fill="#1b2630"/>
+              <ellipse cx="69" cy="42" rx="1.4" ry="3" fill="#1b2630"/>
+              <circle cx="49.8" cy="40.8" r="1" fill="#ffffff"/>
+              <circle cx="67.8" cy="40.8" r="1" fill="#ffffff"/>
+              <circle cx="44" cy="47.5" r="3" fill="#f5b8c2" opacity="0.55"/>
+              <circle cx="76" cy="47.5" r="3" fill="#f5b8c2" opacity="0.55"/>
+              <polygon points="57.8,48 62.2,48 60,50.4" fill="#eb8a98"/>
+              <path d="M56.5 52.5 Q60 55 63.5 52.5" stroke="#9e878b" stroke-width="1.2" stroke-linecap="round"/>
+              <!-- Diminuta rosa roja sostenida por el gatito blanco -->
+              <g transform="translate(76, 67)">
+                <path d="M-8 14 C-4 8, -2 4, 0 0" stroke="#3c6e47" stroke-width="2" stroke-linecap="round"/>
+                <path d="M-4 9 C-10 8, -12 5, -9 3 C-6 4, -4 6, -4 9 Z" fill="#467d52"/>
+                <circle cx="0" cy="-2" r="6.8" fill="#9e1424"/>
+                <circle cx="0" cy="-2.4" r="4.3" fill="#c81d32"/>
+                <path d="M-1.5 -3 C-0.5 -4.4, 2 -3.6, 1.1 -1.7 C0.3 -0.5, -1.6 -1.2, -0.9 -2.5" stroke="#ffdce1" stroke-width="1" stroke-linecap="round"/>
+              </g>
+              <path d="M43 48 L30 47 M43 51 L31 53 M77 48 L90 47 M77 51 L89 53" stroke="#c8b8b3" stroke-width="1" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="font-serif text-2xl text-espresso font-medium">Gato Blanco</h3>
+          <p class="cat-hint text-[11px] uppercase tracking-[0.2em] text-mutedink/70 mt-1">Tocar</p>
+          <div class="cat-bubble w-full">
+            <div class="cat-bubble-inner">
+              <div class="rounded-xl bg-parchment border border-wine/15 px-3.5 py-2.5 text-sm leading-relaxed text-espresso">
+                «Te trae una flor roja de mi parte porque sé que te encantan.»
+              </div>
+            </div>
+          </div>
+        </button>
+
+        <!-- 6. GATO CALICÓ -->
+        <button
+          type="button"
+          class="cat-card group relative flex flex-col items-center text-center w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(33.333%-0.85rem)] rounded-2xl border border-wine/18 bg-white p-6 shadow-md shadow-espresso/6 hover:border-crimson/65 hover:-translate-y-1 transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson"
+        >
+          <div class="cat-svg-wrap w-28 h-24 flex items-center justify-center mb-2">
+            <svg class="w-full h-full" viewBox="0 0 120 110" fill="none" aria-hidden="true">
+              <path d="M84 86 C103 85, 108 65, 97 52" stroke="#241d1f" stroke-width="7.5" stroke-linecap="round"/>
+              <path d="M97 52 C100 56, 103 61, 102 66" stroke="#d97a38" stroke-width="6.5" stroke-linecap="round"/>
+              <ellipse cx="60" cy="76" rx="24" ry="21" fill="#f5efe8" stroke="#ddd1c6" stroke-width="1"/>
+              <path d="M38 68 C45 64, 52 72, 48 82 C42 84, 37 78, 38 68 Z" fill="#d97a38"/>
+              <path d="M72 64 C82 65, 85 76, 78 85 C70 84, 67 72, 72 64 Z" fill="#241d1f"/>
+              <ellipse cx="49" cy="94" rx="6.5" ry="4.5" fill="#f5efe8" stroke="#ddd1c6" stroke-width="1"/>
+              <ellipse cx="71" cy="94" rx="6.5" ry="4.5" fill="#f5efe8" stroke="#ddd1c6" stroke-width="1"/>
+              <circle cx="60" cy="43" r="21" fill="#f5efe8" stroke="#ddd1c6" stroke-width="1"/>
+              <path d="M42 33 L40 13 L55 24 Z" fill="#241d1f"/>
+              <path d="M78 33 L80 13 L65 24 Z" fill="#d97a38"/>
+              <path d="M40 38 C42 26, 54 22, 59 24 C56 35, 50 40, 40 42 Z" fill="#241d1f"/>
+              <path d="M64 23 C74 24, 81 33, 80 44 C72 44, 66 36, 64 23 Z" fill="#d97a38"/>
+              <ellipse cx="51" cy="43" rx="4" ry="3.8" fill="#e5a93c"/>
+              <ellipse cx="69" cy="43" rx="4" ry="3.8" fill="#e5a93c"/>
+              <ellipse cx="51" cy="43" rx="1.4" ry="3" fill="#1c1512"/>
+              <ellipse cx="69" cy="43" rx="1.4" ry="3" fill="#1c1512"/>
+              <circle cx="49.8" cy="41.8" r="1" fill="#ffffff"/>
+              <circle cx="67.8" cy="41.8" r="1" fill="#ffffff"/>
+              <polygon points="57.8,48.5 62.2,48.5 60,51" fill="#df828d"/>
+              <path d="M56.5 53 Q60 55.5 63.5 53" stroke="#6d5d5a" stroke-width="1.2" stroke-linecap="round"/>
+              <path d="M43 48 L30 47 M43 51 L31 53 M77 48 L90 47 M77 51 L89 53" stroke="#b9aba0" stroke-width="1" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="font-serif text-2xl text-espresso font-medium">Gato Calicó</h3>
+          <p class="cat-hint text-[11px] uppercase tracking-[0.2em] text-mutedink/70 mt-1">Tocar</p>
+          <div class="cat-bubble w-full">
+            <div class="cat-bubble-inner">
+              <div class="rounded-xl bg-parchment border border-wine/15 px-3.5 py-2.5 text-sm leading-relaxed text-espresso">
+                «Si pudiera, hoy mismo te regalaba uno de verdad. ¡Felices 17, mi flaca!»
+              </div>
+            </div>
+          </div>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       6. 17 REASONS FLIP CARDS (Sección negro terciopelo, 17 frases breves)
+       ===================================================================== -->
+  <section id="razones" class="relative z-30 bg-reasons-glow text-ivory px-5 sm:px-6 py-24 sm:py-28 border-t border-crimson/20">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center max-w-xl mx-auto mb-10 reveal">
+        <p class="text-[11px] uppercase tracking-[0.28em] text-scarlet font-medium mb-3">
+          Por tus 17 años
+        </p>
+        <h2 class="font-serif font-normal text-4xl sm:text-5xl leading-tight text-ivory mb-3">
+          17 cosas que me encantan de ti
+        </h2>
+        <p class="font-sans font-light text-sm sm:text-base text-ivory/70">
+          Toca cada tarjeta para descubrirlas una por una.
+        </p>
+      </div>
+
+      <!-- Contador en vivo y botón Ver todas / Voltear todas -->
+      <div class="flex flex-wrap items-center justify-center gap-3.5 mb-10 reveal">
+        <span
+          id="flipCounter"
+          class="inline-flex items-center gap-2 rounded-full border border-crimson/40 bg-charcoal/90 px-4 py-2 text-xs sm:text-sm font-medium text-ivory shadow-md"
+        >
+          <span class="h-2 w-2 rounded-full bg-crimson"></span>
+          <span>0 / 17 descubiertas</span>
+        </span>
+        <button
+          id="toggleAllCards"
+          type="button"
+          class="rounded-full border border-crimson bg-crimson/15 px-5 py-2 text-xs sm:text-sm font-medium text-ivory hover:bg-crimson hover:border-scarlet transition-all duration-300 cursor-pointer"
+        >
+          Ver todas
+        </button>
+      </div>
+
+      <!-- Cuadrícula de 17 tarjetas volteables 3D -->
+      <div
+        id="reasonsGrid"
+        class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-4 reveal"
+      >
+        <!-- Se genera por JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       7. THE LETTER SECTION (Fondo marfil pergamino — CLÍMAX + FUENTE KALAM)
+       ===================================================================== -->
+  <section id="carta" class="relative z-30 bg-parchment text-espresso px-5 sm:px-6 py-24 sm:py-32 border-t border-wine/15">
+    <div class="max-w-3xl mx-auto text-center reveal">
+      <p class="text-[11px] uppercase tracking-[0.28em] text-wine font-semibold mb-3">
+        Lo más importante
+      </p>
+      <h2 class="font-serif font-medium text-4xl sm:text-5xl leading-tight text-espresso mb-4">
+        Esta carta es de mí para ti
+      </h2>
+      <p class="font-sans font-light text-sm sm:text-base text-mutedink mb-10 max-w-md mx-auto">
+        Tómate tu tiempo y abre el sobre. Aquí puse todo lo que siento.
+      </p>
+
+      <!-- Pequeño gatito negro sentado justo encima del sobre (al tocarlo dice "prrr ♡") -->
+      <div class="relative flex flex-col items-center -mb-2 z-20">
+        <span
+          id="purrBubble"
+          aria-live="polite"
+          class="mb-1.5 rounded-full bg-obsidian text-ivory px-3.5 py-1 text-xs font-medium tracking-wide shadow-md opacity-0 translate-y-1 transition-all duration-300 pointer-events-none"
+        >
+          prrr ♡
+        </span>
+        <button
+          id="peekingCatBtn"
+          type="button"
+          aria-label="Acariciar al gatito negro sentado sobre el sobre"
+          class="group focus:outline-none cursor-pointer transition-transform duration-300 hover:scale-105"
+        >
+          <svg class="w-24 h-16 drop-shadow-[0_4px_10px_rgba(38,27,29,0.28)]" viewBox="0 0 110 68" fill="none" aria-hidden="true">
+            <path d="M27 42 L29 12 L47 28 Z" fill="#120e10" stroke="#362127" stroke-width="1.2"/>
+            <path d="M83 42 L81 12 L63 28 Z" fill="#120e10" stroke="#362127" stroke-width="1.2"/>
+            <path d="M31 36 L32 19 L43 29 Z" fill="#3a1620"/>
+            <path d="M79 36 L78 19 L67 29 Z" fill="#3a1620"/>
+            <path d="M22 60 C22 36, 37 22, 55 22 C73 22, 88 36, 88 60 Z" fill="#120e10" stroke="#362127" stroke-width="1.2"/>
+            <g class="cat-eyes-blink">
+              <ellipse cx="44" cy="43" rx="4.2" ry="3.7" fill="#f5b82e"/>
+              <ellipse cx="66" cy="43" rx="4.2" ry="3.7" fill="#f5b82e"/>
+              <ellipse cx="44.2" cy="43" rx="1.4" ry="3" fill="#0d0b0c"/>
+              <ellipse cx="66.2" cy="43" rx="1.4" ry="3" fill="#0d0b0c"/>
+              <circle cx="42.8" cy="41.8" r="1" fill="#fff8e1"/>
+              <circle cx="64.8" cy="41.8" r="1" fill="#fff8e1"/>
+            </g>
+            <polygon points="52.8,49.5 57.2,49.5 55,52" fill="#e03a4f"/>
+            <ellipse cx="29" cy="60" rx="8.5" ry="5.5" fill="#1d1518" stroke="#3f252c" stroke-width="1.2"/>
+            <ellipse cx="81" cy="60" rx="8.5" ry="5.5" fill="#1d1518" stroke="#3f252c" stroke-width="1.2"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Sobre de terciopelo negro con forro carmesí y sello de lacre 3D "A" -->
+      <div class="envelope-stage mb-8">
+        <div
+          id="envelopeBox"
+          role="button"
+          tabindex="0"
+          aria-expanded="false"
+          aria-controls="letterWrapper"
+          aria-label="Abrir sobre con mi carta para ti"
+          class="envelope-box select-none"
+        >
+          <div class="envelope-body">
+            <div class="envelope-liner"></div>
+
+            <!-- Hoja que asoma ligeramente al abrir -->
+            <div class="envelope-peek">
+              <span class="text-[10px] uppercase tracking-[0.26em] text-wine font-semibold">Para ti</span>
+              <span class="mt-2 h-[1px] w-14 bg-crimson/40"></span>
+              <span class="mt-2 font-hand text-base text-espresso/85">Mi flaca, Areli...</span>
+            </div>
+
+            <!-- Bolsillo frontal -->
+            <div class="envelope-pocket">
+              <div class="envelope-pocket-left"></div>
+              <div class="envelope-pocket-right"></div>
+              <div class="envelope-pocket-bottom"></div>
+            </div>
+          </div>
+
+          <!-- Solapa animada -->
+          <div class="envelope-flap">
+            <div class="envelope-flap-shape"></div>
+          </div>
+
+          <!-- Sello de lacre rojo 3D con la inicial A -->
+          <div class="wax-seal" aria-hidden="true">
+            <span class="font-serif italic text-3xl leading-none font-semibold text-ivory drop-shadow">A</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botón para abrir / cerrar el sobre -->
+      <button
+        id="openLetterBtn"
+        type="button"
+        class="inline-flex items-center justify-center rounded-full border border-wine bg-obsidian px-8 py-3.5 text-sm font-medium tracking-wide text-ivory shadow-md shadow-espresso/20 hover:bg-wine hover:border-crimson transition-all duration-300 cursor-pointer"
+      >
+        Abrir mi carta ♡
+      </button>
+
+      <!-- Hoja desplegable de la carta (ÚNICO TEXTO LARGO, 100% EN TIPOGRAFÍA MANUSCRITA KALAM) -->
+      <div id="letterWrapper" class="letter-wrapper text-left">
+        <div class="letter-inner">
+          <article class="relative letter-paper-bg rounded-xl border border-wine/30 shadow-[0_24px_58px_-16px_rgba(38,27,29,0.28)] px-6 py-8 sm:px-12 sm:py-14 md:px-16 md:py-16">
+            <!-- Marco interior fino -->
+            <div class="pointer-events-none absolute inset-3 sm:inset-4 rounded-lg border border-wine/15" aria-hidden="true"></div>
+
+            <!-- Ornamento sutil de rosa roja en esquina superior derecha -->
+            <svg class="pointer-events-none select-none absolute top-5 right-5 sm:top-7 sm:right-7 w-12 h-12 sm:w-14 sm:h-14 opacity-85" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <path d="M30 36 C24 44, 18 52, 14 58" stroke="#6b101d" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M24 44 C15 43, 11 38, 10 33 C17 34, 22 38, 24 44 Z" fill="#461119" stroke="#8c1424" stroke-width="0.8"/>
+              <circle cx="34" cy="24" r="12" fill="#8f1222"/>
+              <circle cx="34" cy="23.5" r="8.5" fill="#c81d32"/>
+              <circle cx="33.5" cy="23" r="5.2" fill="#e03a4f"/>
+              <path d="M31.5 22 C33.2 20, 36.8 21.4, 35.4 24.3 C34.1 26.2, 31 25, 32.3 22.8" stroke="#ffe1e6" stroke-opacity="0.8" stroke-width="1.1" stroke-linecap="round"/>
+            </svg>
+
+            <!-- Encabezado discreto de la carta -->
+            <div class="relative mb-8 border-b border-wine/15 pb-3 pr-14">
+              <span class="text-[11px] uppercase tracking-[0.26em] text-wine font-semibold font-sans">
+                23 de noviembre · Tus 17
+              </span>
+            </div>
+
+            <!-- Cuerpo de la carta en fuente manuscrita Kalam -->
+            <div class="relative space-y-6 letter-handwriting">
+              <p class="font-bold text-wine text-[23px] sm:text-[26px]">
+                Mi flaca, Areli:
+              </p>
+
+              <p>
+                Hoy cumples 17 años y de verdad no sabes cuánto me alegra poder estar aquí contigo para celebrarte. A veces me detengo a pensar en cómo empezó todo y todavía me da risa y ternura acordarme de la primera vez que te vi en las canchas jugando fútbol. Llamabas la atención sin siquiera intentarlo, y yo ni me imaginaba que esa chica a la que empecé diciéndole «amiguis» por pura broma se iba a convertir en alguien tan importante en mi vida.
+              </p>
+
+              <p>
+                Me encanta recordar cómo nos fuimos acercando poco a poco, sin prisas y sin forzar nada. Me acuerdo de todas las veces que te llevaba a tu casa y nos quedábamos platicando tanto que yo siempre terminaba llegando tarde, porque la verdad nunca me daban ganas de despedirme de ti. Me acuerdo de los detallitos que te llevaba de la tienda; eran cosas chiquitas, pero a mí me nacía hacerlo solo por ver tu carita. Sin darme cuenta, cada plática, cada risa y cada coincidencia me fue haciendo elegirte todos los días.
+              </p>
+
+              <p>
+                Me encanta tenerte abrazada, escucharte hablar y darnos cariño de esa forma tan nuestra, tan especial y divertida que solo nosotros entendemos. Contigo encuentro una paz y una seguridad que no había sentido antes; me siento tranquilo, cómodo y feliz siendo exactamente quien soy. Y desde aquel primer beso —cuando todavía éramos amigos pero ya nos abrazábamos como si no quisiéramos soltarnos— supe que quería intentar algo bonito contigo.
+              </p>
+
+              <p>
+                Apenas el 16 de noviembre cumplimos nuestro primer mes como novios, y aunque llevamos poquito tiempo en el calendario, lo que siento por ti es muy real y muy grande. Amo tus ojitos, tu sonrisa, tu forma de pensar, la energía tan bonita que llevas a todos lados y esa manera tuya de bailar y disfrutar la vida. Me nacen unas ganas enormes de cuidarte, de apoyarte en todo lo que sueñes y de hacerte sentir querida todos los días, no solo hoy.
+              </p>
+
+              <p>
+                Para estos 17 años te deseo lo más bonito del mundo: que nunca pierdas esa luz que te hace única, que te atrevas a soñar en grande, que la vida te regale mil motivos para sonreír y que siempre tengas cerca a quienes te quieren de verdad. Yo no sé exactamente todo lo que vendrá después, pero sí sé que quiero seguir caminando contigo, abrazándote fuerte y escribiendo muchísimos recuerdos más a tu lado.
+              </p>
+
+              <p>
+                Gracias por llegar a mi vida, por dejarme entrar a la tuya y por hacerme tan feliz. Feliz cumpleaños número 17, mi flaca. Te quiero muchísimo.
+              </p>
+
+              <p class="pt-4 font-bold text-wine text-[23px] sm:text-[26px] leading-snug">
+                Con todo mi corazón,<br>
+                Axel ♡
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       8. CLOSING SECTION & FOOTER (Degradado carmesí a negro + gato negro y rosa)
+       ===================================================================== -->
+  <section id="cierre" class="relative z-30 min-h-[70svh] flex flex-col items-center justify-center text-center px-6 py-24 bg-closing-glow border-t border-crimson/20">
+    <div class="max-w-xl mx-auto reveal">
+
+      <!-- Ilustración SVG: gatito negro sentado tranquilamente junto a una rosa roja -->
+      <div class="flex justify-center mb-8">
+        <button
+          id="closingCatBtn"
+          type="button"
+          aria-label="Acariciar al gatito negro junto a la rosa roja"
+          class="group focus:outline-none cursor-pointer transition-transform duration-300 hover:scale-105"
+        >
+          <svg class="w-40 h-32 drop-shadow-[0_8px_24px_rgba(0,0,0,0.65)]" viewBox="0 0 170 125" fill="none" aria-hidden="true">
+            <ellipse cx="86" cy="112" rx="58" ry="6" fill="#090708" opacity="0.65"/>
+
+            <!-- Gatito negro sentado -->
+            <g>
+              <path d="M84 106 C100 106, 102 88, 92 78" stroke="#100c0e" stroke-width="6.5" stroke-linecap="round"/>
+              <ellipse cx="64" cy="86" rx="22" ry="24" fill="#100c0e" stroke="#2f1c22" stroke-width="1.1"/>
+              <circle cx="64" cy="52" r="18" fill="#100c0e" stroke="#2f1c22" stroke-width="1.1"/>
+              <path d="M48 44 L46 26 L59 36 Z" fill="#100c0e" stroke="#2f1c22" stroke-width="1.1"/>
+              <path d="M80 44 L82 26 L69 36 Z" fill="#100c0e" stroke="#2f1c22" stroke-width="1.1"/>
+              <path d="M50 67 Q64 73 78 67" stroke="#c81d32" stroke-width="3.8" stroke-linecap="round"/>
+              <g class="cat-eyes-blink">
+                <ellipse cx="57" cy="51" rx="3.4" ry="3.1" fill="#f5b82e"/>
+                <ellipse cx="71" cy="51" rx="3.4" ry="3.1" fill="#f5b82e"/>
+                <ellipse cx="57.2" cy="51" rx="1.1" ry="2.5" fill="#0d0b0c"/>
+                <ellipse cx="71.2" cy="51" rx="1.1" ry="2.5" fill="#0d0b0c"/>
+              </g>
+              <ellipse cx="55" cy="108" rx="6" ry="4" fill="#181215"/>
+              <ellipse cx="73" cy="108" rx="6" ry="4" fill="#181215"/>
+            </g>
+
+            <!-- Rosa roja elegante -->
+            <g transform="translate(118, 52)">
+              <path d="M0 16 C-2 32, -4 46, -5 60" stroke="#6b101d" stroke-width="2.4" stroke-linecap="round"/>
+              <path d="M-2 36 C-16 32, -22 24, -22 18 C-12 20, -4 28, -2 36 Z" fill="#3a0d15" stroke="#8f1222" stroke-width="0.9"/>
+              <path d="M-3 45 C10 40, 18 33, 20 26 C8 28, 0 36, -3 45 Z" fill="#2e0a10" stroke="#7d1221" stroke-width="0.9"/>
+              <path d="M0 -24 C17 -25, 29 -11, 25 6 C21 21, 5 28, -10 23 C-24 17, -29 0, -22 -13 C-16 -22, -7 -23, 0 -24 Z" fill="#7a0d1b"/>
+              <path d="M2 -19 C15 -18, 22 -4, 17 8 C12 19, -3 23, -14 14 C-23 6, -21 -10, -10 -17 C-5 -20, -1 -20, 2 -19 Z" fill="#a81426"/>
+              <path d="M-1 -13 C10 -13, 17 -2, 11 9 C6 17, -8 18, -14 8 C-19 0, -12 -13, -1 -13 Z" fill="#c81d32"/>
+              <path d="M-2 -7 C6 -8, 11 0, 7 7 C3 13, -6 13, -10 6 C-13 1, -8 -6, -2 -7 Z" fill="#e03a4f"/>
+              <path d="M-1 -2 C4 -3, 6 1, 4 5 C2 8, -3 8, -5 5 C-6 2, -4 -1, 0 -1" stroke="#ffd8de" stroke-opacity="0.68" stroke-width="1.2" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </button>
+      </div>
+
+      <h2 class="font-serif italic font-normal text-5xl sm:text-6xl text-ivory mb-5 drop-shadow-[0_4px_24px_rgba(200,29,50,0.45)]">
+        Felices 17, <span class="text-scarlet">Areli</span>. ♡
+      </h2>
+
+      <p class="font-sans font-light text-base sm:text-lg leading-relaxed text-ivory/85 mb-10 max-w-md mx-auto">
+        De todas las casualidades de mi vida, coincidir contigo en aquellas canchas es mi favorita. Hoy te celebro a ti.
+      </p>
+
+      <a
+        href="#inicio"
+        class="inline-flex items-center justify-center rounded-full border border-crimson/75 bg-obsidian/70 px-7 py-3 text-sm font-medium tracking-wide text-ivory hover:bg-crimson hover:border-scarlet transition-all duration-300"
+      >
+        Volver arriba ↑
+      </a>
+    </div>
+  </section>
+
+  <!-- Pie de página -->
+  <footer class="relative z-30 bg-obsidian border-t border-crimson/15 py-8 px-6 text-center">
+    <p class="text-[10px] sm:text-[11px] uppercase tracking-[0.28em] text-ivory/45">
+      HECHO POR AXEL, PARA ARELI · 23.11
+    </p>
+  </footer>
+
+  <!-- =====================================================================
+       JAVASCRIPT: Progreso, Reveal, Gatitos, 17 Tarjetas, Sobre, Piano La La Land, Pétalos
+       ===================================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* -------------------------------------------------------------------
+         1. BARRA DE PROGRESO DE LECTURA
+         ------------------------------------------------------------------- */
+      const progressBar = document.getElementById('progressBar');
+      function updateScrollProgress() {
+        try {
+          const scrollTop = window.scrollY || document.documentElement.scrollTop;
+          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          const pct = maxScroll > 0 ? Math.min(100, Math.max(0, (scrollTop / maxScroll) * 100)) : 0;
+          progressBar.style.width = pct + '%';
+        } catch (_) {}
+      }
+      window.addEventListener('scroll', updateScrollProgress, { passive: true });
+      window.addEventListener('resize', updateScrollProgress, { passive: true });
+      updateScrollProgress();
+
+      /* -------------------------------------------------------------------
+         2. ANIMACIÓN SUAVE AL HACER SCROLL (IntersectionObserver)
+         ------------------------------------------------------------------- */
+      const revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const obs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -24px 0px' }
+        );
+        revealEls.forEach((el) => obs.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add('visible'));
+      }
+
+      /* -------------------------------------------------------------------
+         3. PARTÍCULAS FLOTANTES (Corazones carmesí y huellitas al tocar gatos)
+         ------------------------------------------------------------------- */
+      function spawnCatSparks(x, y, count) {
+        const symbols = ['♡', '🐾', '♥', '♡'];
+        for (let i = 0; i < count; i++) {
+          const el = document.createElement('span');
+          el.className = 'spark-particle select-none';
+          const sym = symbols[i % symbols.length];
+          el.textContent = sym;
+          el.style.left = (x + (Math.random() - 0.5) * 68) + 'px';
+          el.style.top = (y + (Math.random() - 0.5) * 26) + 'px';
+          el.style.fontSize = (sym === '🐾' ? 13 : 15 + Math.random() * 6) + 'px';
+          el.style.color = i % 2 === 0 ? '#e03a4f' : '#c81d32';
+          el.style.setProperty('--dx', ((Math.random() - 0.5) * 58).toFixed(1) + 'px');
+          el.style.setProperty('--rot', ((Math.random() - 0.5) * 40).toFixed(1) + 'deg');
+          document.body.appendChild(el);
+          setTimeout(() => el.remove(), 1200);
+        }
+      }
+
+      /* -------------------------------------------------------------------
+         4. SECCIÓN DE 6 GATITOS INTERACTIVOS
+         ------------------------------------------------------------------- */
+      document.querySelectorAll('.cat-card').forEach((card) => {
+        card.addEventListener('click', (e) => {
+          const svgWrap = card.querySelector('.cat-svg-wrap');
+          const hint = card.querySelector('.cat-hint');
+
+          // Reiniciar animación de rebote
+          if (svgWrap) {
+            svgWrap.classList.remove('cat-bounce');
+            void svgWrap.offsetWidth;
+            svgWrap.classList.add('cat-bounce');
+          }
+
+          // Desplegar el mensaje en primera persona
+          card.classList.add('is-revealed');
+          if (hint) {
+            hint.style.display = 'none';
+          }
+
+          // Corazones y huellitas en el punto de toque
+          const rect = card.getBoundingClientRect();
+          const cx = e.clientX || (rect.left + rect.width / 2);
+          const cy = e.clientY || (rect.top + rect.height * 0.35);
+          spawnCatSparks(cx, cy, 5);
+        });
+      });
+
+      /* -------------------------------------------------------------------
+         5. GATITO NEGRO SOBRE EL SOBRE ("prrr ♡") Y GATITO DEL CIERRE
+         ------------------------------------------------------------------- */
+      const peekingCatBtn = document.getElementById('peekingCatBtn');
+      const purrBubble = document.getElementById('purrBubble');
+      let purrTimeout = null;
+
+      if (peekingCatBtn) {
+        peekingCatBtn.addEventListener('click', () => {
+          peekingCatBtn.classList.remove('cat-bounce');
+          void peekingCatBtn.offsetWidth;
+          peekingCatBtn.classList.add('cat-bounce');
+
+          const rect = peekingCatBtn.getBoundingClientRect();
+          spawnCatSparks(rect.left + rect.width / 2, rect.top + 8, 5);
+
+          if (purrBubble) {
+            purrBubble.classList.remove('opacity-0', 'translate-y-1');
+            purrBubble.classList.add('opacity-100', 'translate-y-0');
+            clearTimeout(purrTimeout);
+            purrTimeout = setTimeout(() => {
+              purrBubble.classList.remove('opacity-100', 'translate-y-0');
+              purrBubble.classList.add('opacity-0', 'translate-y-1');
+            }, 2200);
+          }
+        });
+      }
+
+      const closingCatBtn = document.getElementById('closingCatBtn');
+      if (closingCatBtn) {
+        closingCatBtn.addEventListener('click', () => {
+          closingCatBtn.classList.remove('cat-bounce');
+          void closingCatBtn.offsetWidth;
+          closingCatBtn.classList.add('cat-bounce');
+          const rect = closingCatBtn.getBoundingClientRect();
+          spawnCatSparks(rect.left + rect.width * 0.42, rect.top + 24, 6);
+        });
+      }
+
+      /* -------------------------------------------------------------------
+         6. 17 COSAS QUE ME ENCANTAN DE TI (Tarjetas 3D volteables)
+         ------------------------------------------------------------------- */
+      const reasons = [
+        'Tus ojitos cuando me miras.',
+        'Tu sonrisa, que me arregla el día.',
+        'Tu manera tan bonita de pensar.',
+        'Cómo brillas cuando juegas fútbol.',
+        'Tu forma de bailar y disfrutar.',
+        'Lo fácil que es reír contigo.',
+        'Nuestros abrazos largos sin soltarnos.',
+        'Nuestra forma especial y divertida de darnos cariño.',
+        'Que contigo siempre se me va la hora.',
+        'La paz que siento apenas estás cerca.',
+        'Que contigo puedo ser yo mismo sin pena.',
+        'Esa energía tan tuya que contagias.',
+        'Las ganas con las que siempre espero verte.',
+        'Cómo vuelves especial cualquier día normal.',
+        'Tu amor por los gatitos (más los negros).',
+        'Lo mucho que me nace cuidarte.',
+        'Simplemente que seas tú, Areli.'
+      ];
+
+      const reasonsGrid = document.getElementById('reasonsGrid');
+      const flipCounter = document.getElementById('flipCounter');
+      const toggleAllBtn = document.getElementById('toggleAllCards');
+      const flipCards = [];
+
+      const miniRoseSVG = `
+        <svg class="w-6 h-6 opacity-90" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <circle cx="18" cy="16" r="6.8" fill="#9e1424"/>
+          <circle cx="18" cy="15.5" r="4.3" fill="#c81d32"/>
+          <path d="M16.4 14.8 C17.6 13.4, 20 14.3, 19.1 16.2 C18.3 17.4, 16.3 16.6, 17 15.3" stroke="#ffd8de" stroke-opacity="0.75" stroke-width="1" stroke-linecap="round"/>
+          <path d="M18 22.8 V29.5" stroke="#6b101d" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+      `;
+
+      const miniPawSVG = `
+        <svg class="w-5 h-5 text-crimson/85" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <circle cx="6.5" cy="9.5" r="2.1"/>
+          <circle cx="10.2" cy="6.8" r="2.1"/>
+          <circle cx="14.2" cy="6.8" r="2.1"/>
+          <circle cx="17.8" cy="9.5" r="2.1"/>
+          <path d="M12 11.5c-3.1 0-5.4 2.2-5.4 4.5 0 1.4 1.1 2.4 2.6 2.4 1.1 0 1.9-.4 2.8-.4s1.7.4 2.8.4c1.5 0 2.6-1 2.6-2.4 0-2.3-2.3-4.5-5.4-4.5z"/>
+        </svg>
+      `;
+
+      function updateReasonsUI() {
+        const opened = flipCards.filter((c) => c.classList.contains('is-flipped')).length;
+        const word = opened === 1 ? 'descubierta' : 'descubiertas';
+        flipCounter.innerHTML = `<span class="h-2 w-2 rounded-full ${opened === 17 ? 'bg-scarlet animate-ping' : 'bg-crimson'}"></span><span>${opened} / 17 ${word}</span>`;
+        toggleAllBtn.textContent = opened === reasons.length ? 'Voltear todas' : 'Ver todas';
+      }
+
+      reasons.forEach((text, i) => {
+        const num = String(i + 1).padStart(2, '0');
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'flip-scene group block w-full h-40 sm:h-44 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-scarlet rounded-2xl cursor-pointer';
+        btn.setAttribute('aria-pressed', 'false');
+        btn.setAttribute('aria-label', `Tarjeta ${num}: tocar para voltear`);
+
+        const iconHtml = i % 3 === 2 ? miniPawSVG : miniRoseSVG;
+
+        btn.innerHTML = `
+          <div class="flip-card-inner">
+            <!-- Frente: mate oscuro con borde carmesí -->
+            <div class="flip-face flip-front rounded-2xl border border-crimson/40 bg-gradient-to-b from-charcoal to-obsidian p-4 flex flex-col items-center justify-between shadow-lg shadow-black/45 group-hover:border-scarlet transition-colors">
+              <span class="font-serif italic text-3xl text-ivory/95">${num}</span>
+              ${iconHtml}
+              <span class="text-[10px] uppercase tracking-[0.2em] text-ivory/55 group-hover:text-scarlet transition-colors">Tocar</span>
+            </div>
+
+            <!-- Reverso: marfil cálido con texto conciso en primera persona -->
+            <div class="flip-face flip-back rounded-2xl border border-crimson/35 bg-ivory p-4 flex flex-col items-center justify-between text-center shadow-lg shadow-black/40">
+              <div class="w-full flex items-center justify-between text-xs font-serif italic text-crimson font-semibold">
+                <span>${num}</span>
+                <span aria-hidden="true">♡</span>
+              </div>
+              <p class="font-sans text-[13px] sm:text-[13.5px] leading-snug text-espresso my-auto">
+                ${text}
+              </p>
+              <span class="h-[2px] w-7 rounded-full bg-crimson/55"></span>
+            </div>
+          </div>
+        `;
+
+        btn.addEventListener('click', () => {
+          const flipped = btn.classList.toggle('is-flipped');
+          btn.setAttribute('aria-pressed', String(flipped));
+          updateReasonsUI();
+        });
+
+        reasonsGrid.appendChild(btn);
+        flipCards.push(btn);
+      });
+
+      toggleAllBtn.addEventListener('click', () => {
+        const allOpen = flipCards.every((c) => c.classList.contains('is-flipped'));
+        flipCards.forEach((c) => {
+          c.classList.toggle('is-flipped', !allOpen);
+          c.setAttribute('aria-pressed', String(!allOpen));
+        });
+        updateReasonsUI();
+      });
+
+      /* -------------------------------------------------------------------
+         7. SOBRE INTERACTIVO Y DESPLIEGUE DE LA CARTA
+         ------------------------------------------------------------------- */
+      const envelopeBox = document.getElementById('envelopeBox');
+      const openLetterBtn = document.getElementById('openLetterBtn');
+      const letterWrapper = document.getElementById('letterWrapper');
+      let letterOpen = false;
+
+      function toggleLetter() {
+        letterOpen = !letterOpen;
+        envelopeBox.classList.toggle('is-open', letterOpen);
+        envelopeBox.setAttribute('aria-expanded', String(letterOpen));
+        letterWrapper.classList.toggle('open', letterOpen);
+        openLetterBtn.textContent = letterOpen ? 'Cerrar mi carta' : 'Abrir mi carta ♡';
+
+        if (letterOpen) {
+          setTimeout(() => {
+            letterWrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 320);
+        }
+      }
+
+      envelopeBox.addEventListener('click', toggleLetter);
+      envelopeBox.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleLetter();
+        }
+      });
+      openLetterBtn.addEventListener('click', toggleLetter);
+
+      /* -------------------------------------------------------------------
+         8. MOTOR DE PIANO DUAL: musica.mp3 O PIANO SINTETIZADO WEB AUDIO
+            (Vals romántico en 3/4 inspirado en "Mia & Sebastian's Theme" - La La Land)
+         ------------------------------------------------------------------- */
+      const localSong = document.getElementById('localSong');
+      const musicBtn = document.getElementById('musicBtn');
+      const musicLabel = document.getElementById('musicLabel');
+      const musicDot = document.getElementById('musicDot');
+
+      let localMp3Available = false;
+      let isPlaying = false;
+      let activeMode = null; // 'mp3' | 'synth'
+
+      localSong.addEventListener('canplaythrough', () => {
+        localMp3Available = true;
+      });
+      localSong.addEventListener('error', () => {
+        localMp3Available = false;
+      });
+
+      let audioCtx = null;
+      let masterGain = null;
+      let pianoBus = null;
+      let schedulerId = null;
+      let currentStep = 0;
+      let nextStepTime = 0;
+
+      function midiToFreq(midi) {
+        return 440 * Math.pow(2, (midi - 69) / 12);
+      }
+
+      // Escala en La Mayor / Fa# menor
+      const N = {
+        E2: 40, Fs2: 42, A2: 45, B2: 47,
+        Cs3: 49, D3: 50, E3: 52, Fs3: 54, Gs3: 56, A3: 57, B3: 59,
+        Cs4: 61, D4: 62, E4: 64, Fs4: 66, Gs4: 68, A4: 69, B4: 71,
+        Cs5: 73, D5: 74, E5: 76, Fs5: 78, Gs5: 80, A5: 81
+      };
+
+      // Vals suave 3/4 (~114 BPM -> corchea ≈ 0.263s, 16 compases = 96 pasos)
+      const EIGHTH_DUR = 60 / 114 / 2;
+      const SCORE = Array.from({ length: 96 }, () => []);
+
+      function addNote(step, midi, vel, durEighths) {
+        if (step >= 0 && step < SCORE.length) {
+          SCORE[step].push({ m: midi, v: vel, d: durEighths });
+        }
+      }
+
+      // Acompañamiento arpegiado de mano izquierda en 3/4
+      function addWaltzBar(barIdx, bass, mid, top) {
+        const s = barIdx * 6;
+        addNote(s + 0, bass, 0.34, 5.6);
+        addNote(s + 1, mid,  0.22, 4.1);
+        addNote(s + 2, top,  0.24, 3.3);
+        addNote(s + 3, mid,  0.18, 2.7);
+        addNote(s + 4, top,  0.20, 2.2);
+        addNote(s + 5, mid,  0.16, 1.6);
+      }
+
+      // Sección A: Íntima, tierna y nostálgica
+      addWaltzBar(0, N.D3, N.A3, N.Fs4);
+      addWaltzBar(1, N.D3, N.A3, N.Cs4);
+      addNote(0,  N.Cs5, 0.42, 2.2);
+      addNote(2,  N.E5,  0.46, 2.2);
+      addNote(4,  N.Fs5, 0.50, 3.4);
+      addNote(8,  N.E5,  0.44, 2.2);
+      addNote(10, N.Cs5, 0.40, 2.8);
+
+      addWaltzBar(2, N.E3, N.B3, N.Gs4);
+      addWaltzBar(3, N.E3, N.B3, N.D4);
+      addNote(12, N.B4,  0.42, 2.2);
+      addNote(14, N.D5,  0.45, 2.2);
+      addNote(16, N.E5,  0.48, 3.4);
+      addNote(20, N.D5,  0.42, 2.2);
+      addNote(22, N.B4,  0.38, 2.6);
+
+      addWaltzBar(4, N.Cs3, N.Gs3, N.E4);
+      addWaltzBar(5, N.Cs3, N.Gs3, N.B3);
+      addNote(24, N.A4,  0.40, 2.2);
+      addNote(26, N.Cs5, 0.45, 2.2);
+      addNote(28, N.E5,  0.50, 3.4);
+      addNote(32, N.Cs5, 0.42, 2.2);
+      addNote(34, N.B4,  0.38, 2.6);
+
+      addWaltzBar(6, N.Fs2, N.Cs3, N.A3);
+      addWaltzBar(7, N.Fs2, N.Cs3, N.E4);
+      addNote(36, N.A4,  0.42, 3.0);
+      addNote(39, N.Gs4, 0.36, 3.0);
+      addNote(42, N.Fs4, 0.38, 5.4);
+
+      // Sección B: Florecimiento romántico y cadencia final
+      addWaltzBar(8, N.D3, N.A3, N.Fs4);
+      addWaltzBar(9, N.D3, N.A3, N.Cs4);
+      addNote(48, N.Cs5, 0.44, 1.8);
+      addNote(50, N.E5,  0.48, 2.0);
+      addNote(52, N.A5,  0.54, 3.8);
+      addNote(56, N.Gs5, 0.46, 2.2);
+      addNote(58, N.Fs5, 0.44, 2.6);
+
+      addWaltzBar(10, N.Cs3, N.Gs3, N.E4);
+      addWaltzBar(11, N.Fs2, N.Cs3, N.A3);
+      addNote(60, N.E5,  0.48, 2.8);
+      addNote(63, N.D5,  0.44, 2.8);
+      addNote(66, N.Cs5, 0.45, 3.2);
+      addNote(70, N.A4,  0.40, 2.8);
+
+      addWaltzBar(12, N.B2, N.Fs3, N.D4);
+      addWaltzBar(13, N.B2, N.Fs3, N.A3);
+      addNote(72, N.B4,  0.42, 1.8);
+      addNote(74, N.Cs5, 0.45, 1.8);
+      addNote(76, N.D5,  0.48, 2.4);
+      addNote(78, N.Fs5, 0.50, 3.4);
+      addNote(82, N.E5,  0.44, 2.4);
+
+      addWaltzBar(14, N.E2, N.B2, N.Gs3);
+      addNote(84, N.D5,  0.44, 2.2);
+      addNote(86, N.Cs5, 0.42, 2.2);
+      addNote(88, N.B4,  0.40, 2.4);
+
+      addNote(90, N.A2,  0.34, 6.0);
+      addNote(91, N.E3,  0.24, 5.2);
+      addNote(92, N.Cs4, 0.28, 4.8);
+      addNote(90, N.A4,  0.44, 5.8);
+      addNote(93, N.E4,  0.22, 3.6);
+
+      function initAudioEngine() {
+        if (audioCtx) return;
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContextClass();
+
+        masterGain = audioCtx.createGain();
+        masterGain.gain.value = 0.74;
+        masterGain.connect(audioCtx.destination);
+
+        pianoBus = audioCtx.createGain();
+        pianoBus.gain.value = 1.0;
+
+        const dryGain = audioCtx.createGain();
+        dryGain.gain.value = 0.82;
+        pianoBus.connect(dryGain);
+        dryGain.connect(masterGain);
+
+        // Resonancia suave estilo pedal de piano en sala íntima
+        const delayL = audioCtx.createDelay(1.0);
+        const delayR = audioCtx.createDelay(1.0);
+        delayL.delayTime.value = 0.16;
+        delayR.delayTime.value = 0.25;
+
+        const dampFilter = audioCtx.createBiquadFilter();
+        dampFilter.type = 'lowpass';
+        dampFilter.frequency.value = 1600;
+
+        const fbGain = audioCtx.createGain();
+        fbGain.gain.value = 0.29;
+
+        const wetGain = audioCtx.createGain();
+        wetGain.gain.value = 0.27;
+
+        pianoBus.connect(delayL);
+        delayL.connect(dampFilter);
+        dampFilter.connect(delayR);
+        delayR.connect(fbGain);
+        fbGain.connect(delayL);
+        dampFilter.connect(wetGain);
+        delayR.connect(wetGain);
+        wetGain.connect(masterGain);
+      }
+
+      // Voz individual de piano suave (capas sine + triangle + armónico con decaimiento orgánico)
+      function triggerPianoNote(midi, velocity, startTime, durSeconds) {
+        if (!audioCtx || !pianoBus) return;
+        const freq = midiToFreq(midi);
+        const noteGain = audioCtx.createGain();
+
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = 'lowpass';
+        const peakCutoff = Math.min(3300, 920 + freq * 2.3 + velocity * 1100);
+        filter.frequency.setValueAtTime(peakCutoff, startTime);
+        filter.frequency.exponentialRampToValueAtTime(Math.max(400, peakCutoff * 0.34), startTime + durSeconds * 0.92);
+
+        const osc1 = audioCtx.createOscillator();
+        osc1.type = 'sine';
+        osc1.frequency.setValueAtTime(freq, startTime);
+        const g1 = audioCtx.createGain();
+        g1.gain.value = 0.68;
+
+        const osc2 = audioCtx.createOscillator();
+        osc2.type = 'triangle';
+        osc2.frequency.setValueAtTime(freq * 1.0009, startTime);
+        const g2 = audioCtx.createGain();
+        g2.gain.value = 0.25;
+
+        const osc3 = audioCtx.createOscillator();
+        osc3.type = 'sine';
+        osc3.frequency.setValueAtTime(freq * 2, startTime);
+        const g3 = audioCtx.createGain();
+        g3.gain.setValueAtTime(0.11 * velocity, startTime);
+        g3.gain.exponentialRampToValueAtTime(0.0008, startTime + Math.min(0.45, durSeconds * 0.45));
+
+        osc1.connect(g1); g1.connect(filter);
+        osc2.connect(g2); g2.connect(filter);
+        osc3.connect(g3); g3.connect(filter);
+        filter.connect(noteGain);
+        noteGain.connect(pianoBus);
+
+        const peakAmp = Math.min(0.28, velocity * 0.36);
+        noteGain.gain.setValueAtTime(0.0001, startTime);
+        noteGain.gain.linearRampToValueAtTime(peakAmp, startTime + 0.018);
+        noteGain.gain.exponentialRampToValueAtTime(peakAmp * 0.36, startTime + Math.min(0.46, durSeconds * 0.36));
+        noteGain.gain.exponentialRampToValueAtTime(0.0001, startTime + durSeconds + 0.56);
+
+        const stopAt = startTime + durSeconds + 0.64;
+        osc1.start(startTime); osc1.stop(stopAt);
+        osc2.start(startTime); osc2.stop(stopAt);
+        osc3.start(startTime); osc3.stop(stopAt);
+      }
+
+      function scheduleSteps() {
+        if (!audioCtx || !isPlaying) return;
+        const lookAhead = 0.18;
+        while (nextStepTime < audioCtx.currentTime + lookAhead) {
+          const notes = SCORE[currentStep];
+          const isPhraseEnd = (currentStep === 47 || currentStep === 95);
+          for (let i = 0; i < notes.length; i++) {
+            const n = notes[i];
+            const humanize = (Math.random() - 0.5) * 0.012;
+            triggerPianoNote(n.m, n.v, Math.max(audioCtx.currentTime + 0.01, nextStepTime + humanize), n.d * EIGHTH_DUR);
+          }
+          nextStepTime += EIGHTH_DUR * (isPhraseEnd ? 1.32 : 1.0);
+          currentStep = (currentStep + 1) % SCORE.length;
+        }
+      }
+
+      function updateMusicButtonUI() {
+        if (isPlaying) {
+          musicLabel.textContent = '♫ Pausar piano';
+          musicDot.classList.remove('bg-ivory/40');
+          musicDot.classList.add('bg-scarlet', 'animate-pulse');
+        } else {
+          musicLabel.textContent = '♫ Piano · La La Land';
+          musicDot.classList.remove('bg-scarlet', 'animate-pulse');
+          musicDot.classList.add('bg-ivory/40');
+        }
+      }
+
+      function startSynthPiano() {
+        try {
+          initAudioEngine();
+          if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+          }
+          isPlaying = true;
+          activeMode = 'synth';
+          masterGain.gain.cancelScheduledValues(audioCtx.currentTime);
+          masterGain.gain.setValueAtTime(0.01, audioCtx.currentTime);
+          masterGain.gain.linearRampToValueAtTime(0.75, audioCtx.currentTime + 0.45);
+
+          nextStepTime = audioCtx.currentTime + 0.06;
+          clearInterval(schedulerId);
+          schedulerId = setInterval(scheduleSteps, 55);
+          scheduleSteps();
+          updateMusicButtonUI();
+        } catch (_) {}
+      }
+
+      function stopMusic() {
+        isPlaying = false;
+        if (activeMode === 'mp3') {
+          localSong.pause();
+        }
+        if (activeMode === 'synth') {
+          clearInterval(schedulerId);
+          schedulerId = null;
+          if (audioCtx && masterGain) {
+            const now = audioCtx.currentTime;
+            masterGain.gain.cancelScheduledValues(now);
+            masterGain.gain.setValueAtTime(masterGain.gain.value, now);
+            masterGain.gain.linearRampToValueAtTime(0.0001, now + 0.25);
+          }
+        }
+        activeMode = null;
+        updateMusicButtonUI();
+      }
+
+      async function startMusic() {
+        if (isPlaying) return;
+
+        if (localMp3Available && localSong.readyState >= 2) {
+          try {
+            await localSong.play();
+            isPlaying = true;
+            activeMode = 'mp3';
+            updateMusicButtonUI();
+            return;
+          } catch (_) {
+            localMp3Available = false;
+          }
+        }
+        startSynthPiano();
+      }
+
+      musicBtn.addEventListener('click', () => {
+        if (isPlaying) {
+          stopMusic();
+        } else {
+          startMusic();
+        }
+      });
+
+      // Botón "Entrar ♡" del Hero: inicia el piano si está pausado y baja suavemente a #inicio-historia
+      const heroCtaBtn = document.getElementById('heroCtaBtn');
+      const introSection = document.getElementById('inicio-historia');
+      if (heroCtaBtn) {
+        heroCtaBtn.addEventListener('click', () => {
+          if (!isPlaying) {
+            startMusic();
+          }
+          if (introSection) {
+            introSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      }
+
+      /* -------------------------------------------------------------------
+         9. PÉTALOS DE ROSA ROJOS CAYENDO SUAVEMENTE EN CANVAS
+         ------------------------------------------------------------------- */
+      const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const canvas = document.getElementById('petalsCanvas');
+      const ctx = canvas.getContext ? canvas.getContext('2d') : null;
+
+      if (ctx && !reducedMotion) {
+        let width = 0;
+        let height = 0;
+        let petals = [];
+
+        function resizeCanvas() {
+          const dpr = Math.min(window.devicePixelRatio || 1, 2);
+          width = window.innerWidth;
+          height = window.innerHeight;
+          canvas.width = Math.floor(width * dpr);
+          canvas.height = Math.floor(height * dpr);
+          canvas.style.width = width + 'px';
+          canvas.style.height = height + 'px';
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+
+        function createPetal(randomY) {
+          const shades = ['#9e1424', '#b8172b', '#c81d32', '#7d0f1d', '#e03a4f'];
+          return {
+            x: Math.random() * width,
+            y: randomY ? Math.random() * height : -20 - Math.random() * 80,
+            size: 5.5 + Math.random() * 7.5,
+            speedY: 0.4 + Math.random() * 0.7,
+            swayAmp: 0.3 + Math.random() * 0.6,
+            swayFreq: 0.008 + Math.random() * 0.011,
+            phase: Math.random() * Math.PI * 2,
+            rotation: Math.random() * Math.PI * 2,
+            rotSpeed: (Math.random() - 0.5) * 0.015,
+            flipPhase: Math.random() * Math.PI * 2,
+            flipSpeed: 0.014 + Math.random() * 0.018,
+            opacity: 0.2 + Math.random() * 0.28,
+            color: shades[Math.floor(Math.random() * shades.length)]
+          };
+        }
+
+        function initPetals() {
+          resizeCanvas();
+          const count = width < 640 ? 14 : 20;
+          petals = Array.from({ length: count }, () => createPetal(true));
+        }
+
+        function drawPetal(p) {
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rotation);
+          const tilt = 0.45 + 0.55 * Math.abs(Math.cos(p.flipPhase));
+          ctx.scale(1, tilt);
+          ctx.globalAlpha = p.opacity;
+          ctx.fillStyle = p.color;
+
+          const s = p.size;
+          ctx.beginPath();
+          ctx.moveTo(0, -s);
+          ctx.bezierCurveTo(s * 0.95, -s * 0.7, s * 0.95, s * 0.6, 0, s);
+          ctx.bezierCurveTo(-s * 0.95, s * 0.6, -s * 0.85, -s * 0.75, 0, -s);
+          ctx.closePath();
+          ctx.fill();
+          ctx.restore();
+        }
+
+        function animatePetals() {
+          ctx.clearRect(0, 0, width, height);
+          for (let i = 0; i < petals.length; i++) {
+            const p = petals[i];
+            p.y += p.speedY;
+            p.phase += p.swayFreq;
+            p.x += Math.sin(p.phase) * p.swayAmp;
+            p.rotation += p.rotSpeed;
+            p.flipPhase += p.flipSpeed;
+
+            if (p.y > height + 30 || p.x < -40 || p.x > width + 40) {
+              petals[i] = createPetal(false);
+            }
+            drawPetal(petals[i]);
+          }
+          requestAnimationFrame(animatePetals);
+        }
+
+        window.addEventListener('resize', resizeCanvas, { passive: true });
+        window.addEventListener('load', () => {
+          initPetals();
+          animatePetals();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
